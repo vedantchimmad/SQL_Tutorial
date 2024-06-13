@@ -1,0 +1,5 @@
+department_id,name,address,start_date,end_date
+1,Sales Department,"ABC Street",20210301,null
+2,Human Resources,"XYZ Avenue",20210101,null
+3,Finance Department,"PQR Road",20210115,null
+4,R&D Department,"LMN Lane",20210210,null

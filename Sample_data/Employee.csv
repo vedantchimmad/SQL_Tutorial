@@ -1,0 +1,16 @@
+employee_id,first_name,last_name,email,department_id
+1,John,Doe,johndoe@example.com,1
+2,Jane,Smith,janesmith@example.com,2
+3,Michael,Johnson,michaeljohnson@example.com,1
+4,Sarah,Jackson,sarahjackson@example.com,3
+5,Ryan,Wilson,ryanwilson@example.com,2
+6,Maria,Garcia,mariagarcia@example.com,
+7,David,Brown,davidbrown@example.com,
+8,Lisa,Taylor,lisataylor@example.com,
+9,Alexander,Lee,
+10,Samantha,Harris,samanthaharris@example.com,
+11,Brian,Lewis,brianlewis@example.com,
+12,Amanda,Parker,,4
+13,Kevin,Walker,,3
+14,Nicole,Cook,nicolecook@exmaple.com,
+15,Eric,Wright,,2
