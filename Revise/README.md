@@ -44,6 +44,7 @@
 * INSTR
 * NULL
 * COALESCE
+* Windows function 
 
 ### Query 
 * Subquery
@@ -57,4 +58,3 @@
 * Right outer join
 * outer join
 * self join
-* 
