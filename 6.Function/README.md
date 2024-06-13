@@ -449,3 +449,36 @@ Syntax:
 ```roomsql
 SELECT LAST(column_name) FROM table_name;
 ```
+## Window function 
+Window functions apply to aggregate and ranking functions over a particular window
+* OVER clause is used with window functions to define that window.
+* Partitions rows to form a set of rows.(PARTITION BY clause is used)
+* Orders rows within those partitions into a particular order. (ORDER BY clause is used) 
+1) ### Aggregate window function
+aggregate functions such as SUM(), COUNT(), AVERAGE(), MAX(), and MIN() applied over a particular window (set of rows) are called aggregate window functions.
+```roomsql
+SELECT Name, Age, Department, Salary, 
+ AVG(Salary) OVER( PARTITION BY Department) AS Avg_Salary
+ FROM employee
+```
+2) ### RANK
+As the name suggests, the rank function assigns rank to all the rows within every partition. Rank is assigned such that rank 1 given to the first row and rows having same value are assigned same rank. For the next rank after two same rank values, one rank value will be skipped.
+```roomsql
+SELECT Name, Age, Department, Salary, 
+ RANK() OVER( PARTITION BY Department) AS rank_sallery 
+ FROM employee
+```
+3) ### DENSE_RANK
+It assigns rank to each row within partition. Just like rank function first row is assigned rank 1 and rows having same value have same rank.
+```roomsql
+SELECT Name, Age, Department, Salary, 
+ DENSE_RANK() OVER( PARTITION BY Department) AS rank_sallery 
+ FROM employee
+```
+4) ### ROW_NUMBER
+ROW_NUMBER() gives each row a unique number. It numbers rows from one­ to the total rows. The rows are put into groups base­d on their values.
+```roomsql
+SELECT Name, Age, Department, Salary, 
+ ROW_NUMBER() OVER( PARTITION BY Department) AS rn 
+ FROM employee
+```
