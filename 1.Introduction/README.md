@@ -1,10 +1,49 @@
-# Introduction 
+# 📘 Introduction
 
 ---
-### What is data?
-Any meaning full thing which is present around us in the form of Numbers, character or Physical objects is known as data.
-### What is information?
-A collection of data is known as information.
+
+### 🔢 What is Data?
+
+**Data** is any **meaningful raw fact or observation** that can exist in various forms such as:
+
+- **Numbers** (e.g., 123, 45.67)
+- **Characters** (e.g., A, %, #)
+- **Physical objects** (e.g., a book, a person, a sensor reading)
+
+> 🧠 In simple terms: **Data is raw, unorganized facts** that need processing.
+
+#### 🧾 Examples of Data:
+- Temperature = 30°C
+- Student score = 95
+- Name = "John"
+
+---
+
+### 📊 What is Information?
+
+**Information** is **processed, organized, and structured data** that is meaningful and useful for decision-making.
+
+> 📌 When data is analyzed and interpreted to provide meaning — it becomes **information**.
+
+#### 🧾 Examples of Information:
+- "The average temperature today is 30°C" → insight from raw temperatures
+- "John scored highest in the class" → insight from all student scores
+
+---
+
+## 🧱 Key Differences
+
+| Feature        | Data                                  | Information                                |
+|----------------|---------------------------------------|--------------------------------------------|
+| Definition     | Raw facts and figures                 | Processed and meaningful data              |
+| Format         | Unstructured or structured            | Structured and interpreted                 |
+| Purpose        | Input for processing                  | Output after analysis                      |
+| Example        | 98, 76, 85 (student scores)           | Class average score = 86.3                 |
+
+---
+
+> 💡 **Data** is the raw material. **Information** is the finished product.
+---
 ### What are databases?
 Databases are system allow and store data in organized manner,
 #### Types of databases
