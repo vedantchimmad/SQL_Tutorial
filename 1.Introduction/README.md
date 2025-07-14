@@ -121,26 +121,68 @@ SELECT * FROM Users;
 #### SQL-> Structured query language or sequel query language
 #### What is SQL?
 * Is a programming language used to communicate with the databases.
-#### DBMS
+---
+## DBMS
 ![DBMS](../Image/DBMS.png)
-* Data base management system
-* Which is the software use to store and manage the data(modify, insertion, deletion)
->Ex: foxpro,Foxbase, Dbase
+### 🗄️ What is DBMS (Database Management System)?
 
+#### 📘 Definition
+
+A **DBMS (Database Management System)** is **software** that helps you **store, manage, and manipulate** data in a structured way.
+
+It acts as a **bridge between users/applications and the database**, allowing:
+- Easy data access
+- Data security
+- Data consistency
+- Multi-user support
+
+---
+
+### 🧱 Key Functions of a DBMS
+
+| Function               | Description                                        |
+|------------------------|----------------------------------------------------|
+| 📥 Data Storage        | Organizes data into tables (rows & columns)        |
+| 🔍 Query Processing    | Executes queries to retrieve specific data         |
+| 🔐 Access Control      | Manages user access and permissions                |
+| 🛡️ Data Integrity     | Ensures data accuracy and consistency              |
+| 🔄 Transaction Control | Handles commits and rollbacks (ACID compliance)    |
+| 🧾 Backup & Recovery   | Protects data from loss or corruption              |
+
+---
+
+### 📊 Example
+
+Let’s say you run an online store.
+
+A DBMS can manage tables like:
+
+**Table: Customers**
+
+| id | name   | email             |
+|----|--------|-------------------|
+| 1  | Alice  | alice@email.com   |
+| 2  | Bob    | bob@email.com     |
+
+You can write a query like:
+```sql
+SELECT * FROM Customers WHERE name = 'Alice';
+```
+---
 #### RDBMS
 ![RDBMS](../Image/RDBMS.png)
 * Relational database management system
 * It allow us to access the data more efficiently
 * It manages and stores the data in the form of tables and enhanced security features, good performance and allow us to store huge volume of data
 
-| Specific         | DBMS                                                                                                                |RDBMS|
-|------------------|---------------------------------------------------------------------------------------------------------------------|-|
-| Data Model       | DBMS supports various data models, including hierarchical, network, and object-oriented models                      |RDBMS specifically uses the relational data model, where data is organized into tables with rows and columns|
-| Data Relationship | In a DBMS, the relationships between data elements can be represented using pointers or physical links              |In an RDBMS, relationships are established using primary keys and foreign keys to maintain referential integrity|
-| Data Integrity   | A DBMS does not enforce strict referential integrity constraints on its own                                         |An RDBM ensures referential integrity by defining relationships between tables through primary keys and foreign keys|
-| Language         | A variety of programming languages can be used to interact with a DMBS Ex : SQL,Python(mysql-connecter-python),java |SQL (Structured Query Language) is the standard language for interacting with an RDMD|
-| Scalability      | Not better as compared to RDBMS                                                                                     | RDMBs provide better scalability options due to their ability to distribute data across multiple servers (sharding).|
-| ACID Complianc   | ACID (Atomicity, Consistency, Isolation, Durability) properties may or may not be fully supported in a DBMD         |An RDMD ensures full ACID compliance for maintaining data consistency and reliability|
+| Specific           | DBMS                                                                                                                  | RDBMS                                                                                                                |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| Data Model         | DBMS supports various data models, including hierarchical, network, and object-oriented models                        | RDBMS specifically uses the relational data model, where data is organized into tables with rows and columns         |
+| Data Relationship  | In a DBMS, the relationships between data elements can be represented using pointers or physical links                | In an RDBMS, relationships are established using primary keys and foreign keys to maintain referential integrity     |
+| Data Integrity     | A DBMS does not enforce strict referential integrity constraints on its own                                           | An RDBM ensures referential integrity by defining relationships between tables through primary keys and foreign keys |
+| Language           | A variety of programming languages can be used to interact with a DMBS Ex : SQL,Python(mysql-connecter-python),java   | SQL (Structured Query Language) is the standard language for interacting with an RDMD                                |
+| Scalability        | Not better as compared to RDBMS                                                                                       | RDMBs provide better scalability options due to their ability to distribute data across multiple servers (sharding). |
+| ACID Complianc     | ACID (Atomicity, Consistency, Isolation, Durability) properties may or may not be fully supported in a DBMD           | An RDMD ensures full ACID compliance for maintaining data consistency and reliability                                |
 
 ## ACID
 ACID stands for Atomicity, Consistency,Isolation, Durability  
