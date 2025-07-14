@@ -27,7 +27,7 @@ Unlike other SQL categories, DQL **does not change the structure or data** — i
 
 #### 🧾 Basic Syntax of `SELECT`
 
-```sql
+```roomsql
 SELECT column1, column2 FROM table_name WHERE condition;
 ```
 | Task                    | SQL Example                                                 |
@@ -40,13 +40,72 @@ SELECT column1, column2 FROM table_name WHERE condition;
 | Limiting rows (MySQL)   | `SELECT * FROM employees LIMIT 5;`                          |
 | Counting rows           | `SELECT COUNT(*) FROM employees WHERE department = 'HR';`   |
 ---
+## 🏗️ DDL (Data Definition Language) Statement
 
-#### DDL(Data definition language)
-* CREATE
-* ALTER
-* RENAME
-* TRUNCATE
-* DROP
+### 📘 What is DDL?
+
+**DDL** stands for **Data Definition Language**.  
+It includes SQL statements used to **define, modify, or delete the structure** of database objects like **tables**, **schemas**, **views**, and **indexes**.
+
+### 🧱 Purpose of DDL
+
+- Create and remove **tables**, **databases**, and **schemas**
+- Alter table structures (add/remove columns, change data types)
+- Delete objects completely
+
+### 📌 Key DDL Statements
+
+| Statement   | Purpose                                              |
+|-------------|------------------------------------------------------|
+| `CREATE`    | Create a new table, database, or object              |
+| `ALTER`     | Modify the structure of an existing object           |
+| `DROP`      | Delete an object permanently                         |
+| `TRUNCATE`  | Delete all rows from a table (fast and irreversible) |
+| `RENAME`    | Rename a table or column                             |
+
+## 🔧 DDL Statement Examples
+
+#### 🏗️ CREATE TABLE
+```roomsql
+CREATE TABLE students (
+  id INT PRIMARY KEY,
+  name VARCHAR(100),
+  age INT
+);
+```
+#### 🛠️ ALTER TABLE
+```roomsql
+ALTER TABLE students ADD email VARCHAR(100);
+```
+#### 🗑️ DROP TABLE
+```roomsql
+ALTER TABLE students ADD email VARCHAR(100);
+```
+#### 🔄 RENAME TABLE
+```roomsql
+RENAME TABLE students TO learners;
+```
+#### 🧹 TRUNCATE TABLE
+```roomsql
+TRUNCATE TABLE learners;
+```
+
+> ⚠️ **DDL is Auto-Committed**
+>
+> - DDL operations like `CREATE`, `ALTER`, `DROP`, and `TRUNCATE` are **auto-committed**.
+> - That means once executed, **changes are saved immediately** to the database.
+> - ❌ You **cannot ROLLBACK** a DDL statement — the changes are permanent.
+
+
+| DDL Command | Action                              |
+|-------------|-------------------------------------|
+| `CREATE`    | Defines a new object                |
+| `ALTER`     | Modifies existing structure         |
+| `DROP`      | Deletes the object permanently      |
+| `TRUNCATE`  | Removes all data, retains structure |
+| `RENAME`    | Renames tables or columns           |
+---
+
 #### DML(data manipulation language)
 * INSERT
 * UPDATE
