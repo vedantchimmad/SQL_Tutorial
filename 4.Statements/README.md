@@ -1,9 +1,47 @@
-# SQL Statements
-
+# 💬 SQL Statements
 ---
-#### DQL( Data query language)
-* SELECT
-#### DDL(data definition language)
+### 📘 What is an SQL Statement?
+
+An **SQL statement** is a **command** used to perform operations on data in a **relational database** using **Structured Query Language (SQL)**.
+
+You can use SQL to:
+- 🔍 Retrieve data
+- ➕ Insert data
+- 📝 Update or delete data
+- 🛠️ Manage tables and users
+---
+## 🔍 DQL (Data Query Language) statement
+
+### 📘 What is DQL?
+
+**DQL** stands for **Data Query Language**.  
+It is a subset of SQL that focuses **only on retrieving data** from a database.
+
+Unlike other SQL categories, DQL **does not change the structure or data** — it just **queries** and fetches the results.
+
+### ✅ Main Purpose of DQL
+
+- To **fetch data** from one or more tables.
+- To **filter, sort, and group** queried data.
+- To use **conditions** to extract meaningful information.
+
+#### 🧾 Basic Syntax of `SELECT`
+
+```sql
+SELECT column1, column2 FROM table_name WHERE condition;
+```
+| Task                    | SQL Example                                                 |
+|-------------------------|-------------------------------------------------------------|
+| Select all columns      | `SELECT * FROM employees;`                                  |
+| Select specific columns | `SELECT name, age FROM employees;`                          |
+| Use WHERE condition     | `SELECT * FROM employees WHERE age > 30;`                   |
+| Sorting results         | `SELECT * FROM employees ORDER BY age DESC;`                |
+| Filtering with LIKE     | `SELECT * FROM employees WHERE name LIKE 'A%';`             |
+| Limiting rows (MySQL)   | `SELECT * FROM employees LIMIT 5;`                          |
+| Counting rows           | `SELECT COUNT(*) FROM employees WHERE department = 'HR';`   |
+---
+
+#### DDL(Data definition language)
 * CREATE
 * ALTER
 * RENAME
