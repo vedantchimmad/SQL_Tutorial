@@ -106,14 +106,99 @@ TRUNCATE TABLE learners;
 | `RENAME`    | Renames tables or columns           |
 ---
 
-#### DML(data manipulation language)
-* INSERT
-* UPDATE
-* DELETE
-#### DTL(data transaction language)
-* COMMIT
-* ROLBACK
-* SAVEPOINT
+## 📝 DML (Data Manipulation Language) in SQL
+
+### 📘 What is DML?
+
+**DML** stands for **Data Manipulation Language** — a category of SQL statements used to **insert**, **update**, **delete**, and **retrieve** data in existing database tables.
+
+These operations allow users to **manipulate the contents** of a database **without altering its structure**.
+
+### 🧾 Key DML Commands
+
+| Command   | Purpose                               |
+|-----------|---------------------------------------|
+| `INSERT`  | Add new records (rows) to a table     |
+| `UPDATE`  | Modify existing records               |
+| `DELETE`  | Remove records from a table           |
+
+### 🔧 DML Command Examples
+
+#### ➕ INSERT
+```roomsql
+INSERT INTO employees (id, name, department)
+VALUES (1, 'Alice', 'HR');
+```
+#### 🛠️ UPDATE
+```roomsql
+UPDATE employees
+SET department = 'Finance'
+WHERE id = 1;
+```
+#### ❌ DELETE
+```roomsql
+DELETE FROM employees
+WHERE id = 1;
+```
+> ⚠️ **DML is not Auto-Committed**
+>
+> DML statements are not auto-committed by default. You must manually.
+```roomsql
+  COMMIT;   -- Save the changes
+  ROLLBACK; -- Undo the changes
+```
+| DML Command | Description                |
+|-------------|----------------------------|
+| `UPDATE`    | Changes existing data      |
+| `DELETE`    | Removes data from a table  |
+| `SELECT`    | (Sometimes DQL) Reads data |
+---
+
+## 🔄 DTL Statement(Data Transaction Language) — Also Known as TCL (Transaction Control Language)
+
+### 📘 What is DTL/TCL?
+
+**DTL** (more commonly known as **TCL — Transaction Control Language**) is a subset of SQL used to **manage database transactions** and ensure **data integrity** during multi-step operations.
+
+It allows you to **commit**, **rollback**, and **control savepoints** in transactions.
+
+### 🧾 Key DTL / TCL Commands
+
+| Command             | Description                                              |
+|---------------------|----------------------------------------------------------|
+| `COMMIT`            | Saves all changes made in the current transaction        |
+| `ROLLBACK`          | Undoes all changes made in the current transaction       |
+| `SAVEPOINT`         | Sets a checkpoint in a transaction to partially rollback |
+| `RELEASE SAVEPOINT` | Deletes a savepoint (optional and DBMS-specific)         |
+| `SET TRANSACTION`   | Sets isolation level or properties for a transaction     |
+
+## 🔧 Command Examples
+
+#### ✅ COMMIT
+```roomsql
+UPDATE employees SET salary = salary + 1000 WHERE department = 'IT';
+COMMIT;
+```
+#### ❌ ROLLBACK
+```roomsql
+DELETE FROM employees WHERE department = 'HR';
+ROLLBACK;
+```
+#### 🏁 SAVEPOINT and ROLLBACK TO
+```roomsql
+SAVEPOINT before_delete;
+DELETE FROM employees WHERE age > 60;
+ROLLBACK TO before_delete;
+```
+| DTL Command       | Function                                  |
+|-------------------|-------------------------------------------|
+| `COMMIT`          | Finalizes and saves all changes           |
+| `ROLLBACK`        | Reverts all changes since last COMMIT     |
+| `SAVEPOINT`       | Creates a rollback point in a transaction |
+| `ROLLBACK TO`     | Reverts to a specific savepoint           |
+| `SET TRANSACTION` | Sets isolation level (optional use)       |
+---
+
 #### DCL(data control language)
 * REVOKE
 * GRANT
