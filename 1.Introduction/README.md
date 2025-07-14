@@ -68,6 +68,7 @@ Databases are used everywhere — websites, apps, banking systems, hospitals, an
 ----
 
 ### 🧩 Types of Databases
+![Types Of Databases](../Image/Types_DataBase.png)
 
 | Type                   | Description                               | Examples                              |
 |------------------------|-------------------------------------------|---------------------------------------|
