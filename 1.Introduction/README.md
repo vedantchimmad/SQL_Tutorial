@@ -249,3 +249,39 @@ ACID stands for Atomicity, Consistency,Isolation, Durability
 * **Durability**: Durability guarantees that once committed, changes made by successful transactions are permanent and survive any subsequent failures such as power outages or system crashes.
 
 ACID properties ensure reliable and consistent data management in databases and help maintain data integrity while allowing concurrent access to shared resources through proper isolation controls.
+
+---
+### 💬 Comments in SQL
+
+#### 📘 What are Comments?
+
+**Comments in SQL** are lines or blocks of text that are **ignored by the SQL engine**.  
+They are used to **explain**, **document**, or **temporarily disable** parts of SQL code for better readability and collaboration.
+
+### 📝 Types of Comments in SQL
+
+#### 1. **Single-Line Comments**
+
+- Start with `--` (double dash)
+- Everything after `--` on that line is ignored
+
+#### Example:
+```roomsql
+-- This is a single-line comment
+SELECT * FROM employees;  -- Fetch all records from employees
+```
+#### 2.**Multi-Line (Block) Comments**
+- Enclosed between /* ... */
+- Can span multiple lines
+
+#### Example:
+```roomsql
+/*
+This query selects all employees
+from the employees table
+who work in the IT department
+*/
+SELECT * FROM employees WHERE department = 'IT';
+
+```
+---
