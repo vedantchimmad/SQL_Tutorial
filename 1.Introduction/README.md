@@ -170,22 +170,78 @@ You can write a query like:
 SELECT * FROM Customers WHERE name = 'Alice';
 ```
 ---
-#### RDBMS
+## RDBMS
 ![RDBMS](../Image/RDBMS.png)
-* Relational database management system
-* It allow us to access the data more efficiently
-* It manages and stores the data in the form of tables and enhanced security features, good performance and allow us to store huge volume of data
+## 📘 What is an RDBMS?
 
-| Specific           | DBMS                                                                                                                  | RDBMS                                                                                                                |
-|--------------------|-----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| Data Model         | DBMS supports various data models, including hierarchical, network, and object-oriented models                        | RDBMS specifically uses the relational data model, where data is organized into tables with rows and columns         |
-| Data Relationship  | In a DBMS, the relationships between data elements can be represented using pointers or physical links                | In an RDBMS, relationships are established using primary keys and foreign keys to maintain referential integrity     |
-| Data Integrity     | A DBMS does not enforce strict referential integrity constraints on its own                                           | An RDBM ensures referential integrity by defining relationships between tables through primary keys and foreign keys |
-| Language           | A variety of programming languages can be used to interact with a DMBS Ex : SQL,Python(mysql-connecter-python),java   | SQL (Structured Query Language) is the standard language for interacting with an RDMD                                |
-| Scalability        | Not better as compared to RDBMS                                                                                       | RDMBs provide better scalability options due to their ability to distribute data across multiple servers (sharding). |
-| ACID Complianc     | ACID (Atomicity, Consistency, Isolation, Durability) properties may or may not be fully supported in a DBMD           | An RDMD ensures full ACID compliance for maintaining data consistency and reliability                                |
+An **RDBMS (Relational Database Management System)** stores data in a **structured format using tables**, and manages the relationships between those tables using **keys**.
 
-## ACID
+Each **table** represents a **relation**, and each row in the table is called a **tuple** (record), while each column is called an **attribute** (field).
+
+### 🧩 Basic Structure
+```yaml
+Database
+└── Tables
+├── Columns (Attributes)
+├── Rows (Records/Tuples)
+└── Constraints (Primary key, Foreign key, etc.)
+```
+### 🗂️ Key Components of RDBMS Structure
+
+| Component         | Description                                                   |
+|-------------------|---------------------------------------------------------------|
+| **Tables**        | The basic unit of data; organized in rows and columns         |
+| **Rows**          | Represent records/instances                                   |
+| **Columns**       | Represent fields/attributes (e.g., name, salary)              |
+| **Primary Key**   | Uniquely identifies each row in a table                       |
+| **Foreign Key**   | Links one table to another to establish relationships         |
+| **Constraints**   | Rules applied to columns (e.g., NOT NULL, UNIQUE)             |
+| **Schema**        | Blueprint of the database (table definitions, types, keys)    |
+
+### 🔄 Difference Between DBMS and RDBMS
+| Feature             | **DBMS (Database Management System)**                    | **RDBMS (Relational Database Management System)**                  |
+|---------------------|----------------------------------------------------------|--------------------------------------------------------------------|
+| 📊 **Data Structure**   | Stores data as files, records, or semi-structured formats | Stores data in **tables** (rows & columns)                         |
+| 🔗 **Relationship Support** | Does **not support** relationships between data             | Supports **relationships** using **foreign keys**                  |
+| 📐 **Data Model**       | Hierarchical, network, or object-oriented              | Strictly **relational** (based on E.F. Codd’s model)               |
+| 🧩 **Schema**           | May be **dynamic or unstructured**                    | Requires a **fixed schema**                                        |
+| 🧾 **Query Language**   | May not use SQL (or uses limited query languages)      | Uses full-featured **SQL (Structured Query Language)**             |
+| 🔐 **Security**         | Basic authentication or file-level security            | Advanced **user access controls, roles, privileges**               |
+| 👥 **Multi-user Support** | May not support concurrent access                    | Designed to support **multiple users simultaneously**              |
+| 🧪 **Data Integrity**   | Manually enforced                                     | Ensures **data integrity** via constraints                         |
+| 💾 **Storage**          | Small-scale applications                              | Large-scale, complex, enterprise-level applications                |
+| 📚 **Examples**         | XML DB, JSON DB, Microsoft Access (basic), file systems | MySQL, PostgreSQL, Oracle, SQL Server, SQLite                      |
+
+---
+### 💎 ACID Properties in Database
+
+#### 📘 What is ACID?
+
+**ACID** stands for **Atomicity, Consistency, Isolation, and Durability** — the four key properties that ensure reliable processing of database transactions.
+
+These properties guarantee that **data remains accurate, consistent, and safe**, even in the event of errors, power failures, or crashes.
+
+---
+
+### 🔑 ACID Properties Explained
+
+| Property             | Description                                                                                                | Real-World Analogy                                                                   |
+|----------------------|------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| ⚛️ **Atomicity**     | All steps in a transaction are treated as a single unit. Either **all succeed** or **none do**.            | ATM: Money must be debited from one account and credited to another — both or none.  |
+| ✅ **Consistency**    | A transaction must bring the database from one **valid state to another**.                                 | If a product stock was 10, after selling 1, it must become 9 — no in-between states. |
+| 🧍‍♂️ **Isolation**  | Concurrent transactions must not **interfere** with each other. Temporary changes are invisible to others. | Two people booking the same movie seat won't overwrite each other's booking.         |
+| 🛡️ **Durability**   | Once a transaction is **committed**, its changes are **permanent**, even if the system crashes.            | After transferring money, the change remains even if the app crashes.                |
+
+---
+
+## 🧾 Example: Bank Transfer
+
+```sql
+BEGIN TRANSACTION;
+UPDATE accounts SET balance = balance - 500 WHERE id = 1;  -- Debit
+UPDATE accounts SET balance = balance + 500 WHERE id = 2;  -- Credit
+COMMIT;
+```
 ACID stands for Atomicity, Consistency,Isolation, Durability  
 * **Atomicity** : It treats all the transaction as single indivisible unit,It means that either all the operations within a transaction are successfully completed, or none of them are applied to the database. If any part of a transaction fails, all changes made by previous operations within the same transaction are rolled back. 
 * **Consistency**: Consistency guarantees that a database remains in a valid state before and after each transaction execution. It ensures that only valid data is written to the database by enforcing predefined rules or constraints.
