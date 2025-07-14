@@ -199,11 +199,44 @@ ROLLBACK TO before_delete;
 | `SET TRANSACTION` | Sets isolation level (optional use)       |
 ---
 
-#### DCL(data control language)
-* REVOKE
-* GRANT
+## 🔐 DCL Statement(Data Control Language) in SQL
 
+### 📘 What is DCL?
 
+**DCL (Data Control Language)** is a subset of SQL used to **control access, permissions, and privileges** on database objects like tables, views, procedures, and schemas.
+
+It is used by database administrators to **grant or revoke rights** to users and roles.
+
+### 🧾 Key DCL Commands
+
+| Command   | Description                                         |
+|-----------|-----------------------------------------------------|
+| `GRANT`   | Gives specific privileges to users or roles         |
+| `REVOKE`  | Removes previously granted privileges               |
+
+> ⚠️ Note: DCL statements may also depend on the DBMS and user access level.
+
+### 🔧 DCL Command Syntax & Examples
+
+#### ✅ GRANT
+
+```roomsql
+GRANT SELECT, INSERT ON employees TO vedant;
+```
+#### ❌ REVOKE
+```roomsql
+REVOKE INSERT ON employees FROM vedant;
+```
+| Privilege   | Description                        |
+|-------------|------------------------------------|
+| `SELECT`    | Permission to query data           |
+| `INSERT`    | Permission to add new records      |
+| `UPDATE`    | Permission to modify data          |
+| `DELETE`    | Permission to remove records       |
+| `EXECUTE`   | Run stored procedures or functions |
+| `ALL`       | All of the above privileges        |
+
+---
 
 ## DQL(data query language)
 * DQL statements are used to fetch or retrieve the data based on the query we passed in database.
