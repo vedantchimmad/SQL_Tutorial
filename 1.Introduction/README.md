@@ -65,7 +65,7 @@ Databases are used everywhere — websites, apps, banking systems, hospitals, an
 | 🔐 **Security**           | Access control and data protection                  |
 | 📊 **Scalability**        | Can handle large amounts of data efficiently        |
 
-----
+---
 
 ### 🧩 Types of Databases
 
