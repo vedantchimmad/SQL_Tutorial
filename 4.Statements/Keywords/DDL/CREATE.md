@@ -57,4 +57,11 @@ END;
 --usage
 SELECT dbo.add_numbers(5, 10) AS result;
 ```
-
+---
+### 🧠 Summary
+| Object   | Syntax Example                         |
+| -------- | -------------------------------------- |
+| Table    | `CREATE TABLE employees (...)`         |
+| Database | `CREATE DATABASE mydb;`                |
+| View     | `CREATE VIEW myview AS SELECT ...`     |
+| Index    | `CREATE INDEX idx_name ON table(col);` |
