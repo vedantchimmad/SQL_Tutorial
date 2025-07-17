@@ -16,18 +16,18 @@ ON table1.common_column = table2.common_column;
 ---
 ## 🧩 Example
 ### 🧑 Employees :
-| emp\_id | name    | dept\_id |
-| ------- | ------- | -------- |
-| 1       | Alice   | 101      |
-| 2       | Bob     | 102      |
-| 3       | Charlie | NULL     |
-| 4       | David   | 104      |
+| emp_id | name    | dept_id |
+| ------ | ------- | -------- |
+| 1      | Alice   | 101      |
+| 2      | Bob     | 102      |
+| 3      | Charlie | NULL     |
+| 4      | David   | 104      |
 ### 🏢 Departments
-| dept\_id | dept\_name |
-| -------- | ---------- |
-| 101      | HR         |
-| 102      | IT         |
-| 103      | Finance    |
+| dept_id | dept_name |
+| ------- | --------- |
+| 101     | HR        |
+| 102     | IT        |
+| 103     | Finance   |
 
 ### 🛠 Query
 ```roomsql
@@ -37,10 +37,10 @@ INNER JOIN Departments d
 ON e.dept_id = d.dept_id;
 ```
 ### 📤 Output
-| name  | dept\_name |
-| ----- | ---------- |
-| Alice | HR         |
-| Bob   | IT         |
+| name  | dept_name |
+| ----- | --------- |
+| Alice | HR        |
+| Bob   | IT        |
 
 * Only employees with matching dept_id in both tables are returned.
 * Rows with NULL or no match (like Charlie and David) are excluded.
