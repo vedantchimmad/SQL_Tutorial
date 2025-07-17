@@ -31,7 +31,7 @@ These are commonly used in:
 
 ---
 
-### ✅ Example Usage
+### 🛠️ Use Cases
 
 #### 1. Using `=`, `<>`, `>`, `<`
 
