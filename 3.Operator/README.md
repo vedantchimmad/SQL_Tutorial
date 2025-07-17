@@ -1,4 +1,80 @@
-# Operator
+# 🔣 SQL Operators
+
+---
+## 📘 What Are Operators?
+
+SQL **operators** are special symbols or keywords used to **perform operations** on values, columns, or expressions in SQL queries.
+
+### 🔧 Types of SQL Operators
+
+### 1. **Arithmetic Operators**
+
+| Operator | Description         | Example            |
+|----------|---------------------|--------------------|
+| `+`      | Addition            | `salary + 5000`    |
+| `-`      | Subtraction         | `salary - 1000`    |
+| `*`      | Multiplication      | `price * quantity` |
+| `/`      | Division            | `total / count`    |
+| `%`      | Modulus (remainder) | `value % 2`        |
+
+---
+
+### 2. **Comparison Operators**
+
+| Operator    | Description                     | Example                     |
+|-------------|---------------------------------|-----------------------------|
+| `=`         | Equal to                        | `age = 30`                  |
+| `!=` / `<>` | Not equal to                    | `salary <> 50000`           |
+| `>`         | Greater than                    | `marks > 60`                |
+| `<`         | Less than                       | `salary < 70000`            |
+| `>=`        | Greater than or equal to        | `age >= 18`                 |
+| `<=`        | Less than or equal to           | `price <= 100`              |
+| `BETWEEN`   | Between two values (inclusive)  | `age BETWEEN 18 AND 30`     |
+| `LIKE`      | Pattern match (text)            | `name LIKE 'A%'`            |
+| `IN`        | Matches any value in a list     | `department IN ('HR','IT')` |
+| `IS NULL`   | Checks for NULL value           | `email IS NULL`             |
+
+---
+
+### 3. **Logical Operators**
+
+| Operator | Description                      | Example                              |
+|----------|----------------------------------|--------------------------------------|
+| `AND`    | All conditions must be true      | `age > 18 AND salary > 50000`        |
+| `OR`     | At least one condition is true   | `city = 'Delhi' OR city = 'Mumbai'`  |
+| `NOT`    | Reverses condition               | `NOT status = 'Active'`              |
+
+---
+
+### 4. **Set Operators (for combining queries)**
+
+| Operator    | Description                            |
+|-------------|----------------------------------------|
+| `UNION`     | Combines results & removes duplicates  |
+| `UNION ALL` | Combines all results (with duplicates) |
+| `INTERSECT` | Returns common rows (some DBs only)    |
+| `EXCEPT`    | Rows from first query not in second    |
+
+---
+
+### 5. **Bitwise Operators** (SQL Server only)
+
+| Operator | Description       |
+|----------|-------------------|
+| `&`      | Bitwise AND       |
+| `|`      | Bitwise OR        |
+| `^`      | Bitwise XOR       |
+| `~`      | Bitwise NOT       |
+
+---
+
+### 🧠 Example Query Using Operators
+
+```roomsql
+SELECT name, salary * 1.1 AS new_salary
+FROM employees
+WHERE department = 'IT' AND salary > 60000;
+```
 
 ---
 * Operators are used to perform specific kind of operations on the operands based on the certain-conditions
