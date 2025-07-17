@@ -45,6 +45,14 @@ WHERE NOT EXISTS (
   FROM Departments d
   WHERE e.dept_id = d.dept_id
 );
+
+
+--`Other Way`
+SELECT e.*
+FROM Employees e
+LEFT JOIN Departments d
+  ON e.dept_id = d.dept_id
+WHERE d.dept_id IS NULL;
 ```
 ### 📤 Output
 | emp_id | name    | dept_id |
