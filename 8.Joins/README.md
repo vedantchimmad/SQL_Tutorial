@@ -1,3 +1,65 @@
+# 🔗 SQL JOINS
+
+---
+## 📘 What Are Joins?
+SQL **joins** are used to **combine rows from two or more tables** based on a **related column** between them (usually a foreign key).
+
+---
+## 🧩 Types of Joins
+
+### 1. **INNER JOIN**
+Returns only **matching rows** from both tables.
+
+```roomsql
+SELECT employees.name, departments.dept_name
+FROM employees
+INNER JOIN departments
+ON employees.dept_id = departments.id;
+```
+### 2. LEFT JOIN (or LEFT OUTER JOIN)
+Returns **all rows from the left** table and matched rows from the right table.
+If no match, `NULL` is returned from the righ
+```roomsql
+SELECT employees.name, departments.dept_name
+FROM employees
+LEFT JOIN departments
+ON employees.dept_id = departments.id;
+```
+### 3. RIGHT JOIN (or RIGHT OUTER JOIN)
+Returns `all rows from the right` table and matched rows from the left.
+If no match, `NULL` is returned from the left.
+```roomsql
+SELECT employees.name, departments.dept_name
+FROM employees
+RIGHT JOIN departments
+ON employees.dept_id = departments.id;
+```
+### 4. FULL JOIN (or FULL OUTER JOIN)
+Returns all rows from both tables. If there's no match, returns NULL.
+```roomsql
+SELECT employees.name, departments.dept_name
+FROM employees
+FULL OUTER JOIN departments
+ON employees.dept_id = departments.id;
+```
+### 5. CROSS JOIN
+Returns Cartesian product — all combinations of rows.
+```roomsql
+SELECT a.name, b.product
+FROM customers a
+CROSS JOIN products b;
+```
+---
+## ✅ Summary Table
+| Join Type  | Includes unmatched rows from |
+| ---------- | ---------------------------- |
+| INNER JOIN | ❌ None (only matches)        |
+| LEFT JOIN  | ✅ Left table                 |
+| RIGHT JOIN | ✅ Right table                |
+| FULL JOIN  | ✅ Both tables                |
+| CROSS JOIN | ❌ No condition; all combos   |
+---
+
 # Joins
 
 ---
