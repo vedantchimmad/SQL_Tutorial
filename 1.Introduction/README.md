@@ -274,7 +274,7 @@ SELECT * FROM employees;  -- Fetch all records from employees
 - Enclosed between /* ... */
 - Can span multiple lines
 
-#### Example:
+### Example:
 ```roomsql
 /*
 This query selects all employees
