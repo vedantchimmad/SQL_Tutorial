@@ -1,10 +1,11 @@
 # 🔢 Numeric Functions in SQL
 
+---
 SQL provides built-in **numeric functions** to perform calculations or transformations on numeric data types like `INT`, `DECIMAL`, or `FLOAT`.
 
 ---
 
-## 📘 Common Numeric Functions
+### 📘 Common Numeric Functions
 
 | Function       | Description                                 | Example                     | Output   |
 |----------------|---------------------------------------------|-----------------------------|----------|
