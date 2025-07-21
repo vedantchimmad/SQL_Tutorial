@@ -1,3 +1,79 @@
+# 🧬 SQL Functions
+
+---
+## 📌 What Are Row-Level Functions?
+
+Row-level functions (also called **scalar functions**) operate **on individual rows** and return a **single value** per row.
+
+They do **not** operate on groups of rows (unlike aggregate functions).
+
+---
+
+### 🧩 Types of Row-Level Functions
+
+#### 🔠 1. String Functions
+
+| Function      | Description                                 | Example                         |
+|---------------|---------------------------------------------|---------------------------------|
+| `UPPER()`     | Converts to uppercase                       | `UPPER('sql') → 'SQL'`         |
+| `LOWER()`     | Converts to lowercase                       | `LOWER('SQL') → 'sql'`         |
+| `LENGTH()`    | Returns number of characters                | `LENGTH('Data') → 4`           |
+| `SUBSTRING()` | Extracts part of string                     | `SUBSTRING('Hello', 2, 3)`     |
+| `TRIM()`      | Removes whitespace                          | `TRIM('  sql ') → 'sql'`       |
+| `CONCAT()`    | Joins two or more strings                   | `CONCAT('Data', 'Base')`       |
+
+---
+
+#### 🔢 2. Numeric Functions
+
+| Function      | Description                        | Example                    |
+|---------------|------------------------------------|----------------------------|
+| `ABS()`       | Absolute value                     | `ABS(-7) → 7`              |
+| `CEIL()`      | Rounds up to next integer          | `CEIL(4.2) → 5`            |
+| `FLOOR()`     | Rounds down to previous integer    | `FLOOR(4.8) → 4`           |
+| `ROUND()`     | Rounds to given decimal places     | `ROUND(3.456, 2) → 3.46`   |
+| `POWER()`     | Exponentiation                     | `POWER(2, 3) → 8`          |
+| `MOD()`       | Returns remainder                  | `MOD(10, 3) → 1`           |
+
+---
+
+#### 📅 3. Date & Time Functions
+
+| Function         | Description                         | Example                          |
+|------------------|-------------------------------------|----------------------------------|
+| `CURRENT_DATE`   | Returns today's date                | `2025-07-15`                     |
+| `CURRENT_TIME`   | Returns current time                | `14:35:22`                       |
+| `NOW()`          | Returns current date and time       | `2025-07-15 14:35:22`            |
+| `DATEADD()`      | Adds interval to date               | `DATEADD(day, 5, '2025-07-10')`  |
+| `DATEDIFF()`     | Difference between dates            | `DATEDIFF(day, '2025-07-10', '2025-07-15') → 5` |
+| `EXTRACT()`      | Extracts part of a date             | `EXTRACT(YEAR FROM '2025-07-15') → 2025` |
+
+---
+
+### 🔍 Example Query
+
+```sql
+SELECT 
+  name,
+  UPPER(name) AS upper_name,
+  ROUND(salary * 1.1, 2) AS updated_salary,
+  LENGTH(name) AS name_length
+FROM employees;
+```
+---
+### 📘 Single Row Functions vs Multi Row Functions
+| Feature                | 🔹 **Single Row Functions**         | 🔸 **Multi Row Functions**                    |
+| ---------------------- | ----------------------------------- | --------------------------------------------- |
+| **Definition**         | Operate on each **individual row**  | Operate on **group of rows (entire column)**  |
+| **Returns**            | One result per row                  | One result for **multiple rows**              |
+| **Used In**            | `SELECT`, `WHERE`, `ORDER BY`       | `SELECT` (with `GROUP BY` or standalone)      |
+| **Also Called**        | **Scalar functions**                | **Aggregate functions**                       |
+| **Examples**           | `UPPER()`, `ROUND()`, `SUBSTRING()` | `SUM()`, `AVG()`, `MAX()`, `MIN()`, `COUNT()` |
+| **Grouping Required?** | ❌ No                                | ✅ Often used with `GROUP BY`                  |
+
+---
+
+
 # Functions
 
 ---
