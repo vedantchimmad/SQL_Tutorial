@@ -47,4 +47,71 @@ FROM employees;
 * Detecting duplicates or gaps
 * Comparing row with previous/next
 * Calculating running totals, percentiles
+---
+## 🪟 SQL Window Frame
 
+---
+
+## 🧠 What is a Window Frame?
+
+A **window frame** defines the **subset of rows** over which a **window function** operates within its partition. It’s especially useful for **running totals**, **moving averages**, etc.
+
+---
+
+### ✳️ Syntax Overview
+
+```roomsql
+<window_function> OVER (
+  PARTITION BY column
+  ORDER BY column
+  ROWS|RANGE BETWEEN <start> AND <end>
+)
+```
+### 🆚 ROWS vs RANGE
+| Frame Type | Description                        |
+| ---------- | ---------------------------------- |
+| `ROWS`     | Operates on **physical row count** |
+| `RANGE`    | Operates on **value-based range**  |
+
+### 🎯 Frame Boundaries
+| Boundary              | Meaning                                 |
+| --------------------- | --------------------------------------- |
+| `UNBOUNDED PRECEDING` | From the **first row** in the partition |
+| `n PRECEDING`         | From **n rows before** the current row  |
+| `CURRENT ROW`         | The **current row**                     |
+| `n FOLLOWING`         | **n rows after** the current row        |
+| `UNBOUNDED FOLLOWING` | Till the **last row** in the partition  |
+
+### .📌 Example
+
+#### Example 1: Running Total
+```roomsql
+SELECT
+  employee_id,
+  salary,
+  SUM(salary) OVER (
+    ORDER BY employee_id
+    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+  ) AS running_total
+FROM employees;
+```
+#### 📌 Example 2: Moving Average (Last 2 + Current)
+```roomsql
+SELECT
+  employee_id,
+  salary,
+  AVG(salary) OVER (
+    ORDER BY employee_id
+    ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+  ) AS moving_avg
+FROM employees;
+```
+---
+### ✅ Summary Table
+| Keyword               | Meaning                        |
+| --------------------- | ------------------------------ |
+| `ROWS`                | Uses row count for window size |
+| `RANGE`               | Uses column value range        |
+| `BETWEEN ... AND ...` | Defines sliding frame          |
+| `UNBOUNDED`           | Start or end of partition      |
+| `CURRENT ROW`         | Refers to row being evaluated  |
