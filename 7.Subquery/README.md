@@ -1,3 +1,99 @@
+# 🔁 SQL Subquery (Sub-select)
+
+---
+### 📘 What is a Subquery?
+
+A **subquery** is a query nested inside another SQL query. It is also known as a **nested query** or **inner query**, and it returns data to the **outer query**.
+
+### ✅ Use Cases
+
+- Filter rows using a result from another query
+- Replace temporary tables
+- Compute values for use in conditions or columns
+
+### 🧾 Syntax
+
+```roomsql
+SELECT column1
+FROM table1
+WHERE column2 = (SELECT column2 FROM table2 WHERE condition);
+```
+---
+### 🧪 Example Tables
+#### Employees
+| id | name  | dept_id | salary |
+| -- | ----- | ------- | ------ |
+| 1  | Alice | 10      | 70000  |
+| 2  | Bob   | 20      | 50000  |
+| 3  | Carol | 10      | 80000  |
+
+#### Departments
+| dept_id | dept_name  |
+| ------- | ---------- |
+| 10      | Engineering |
+| 20      | Marketing  |
+
+#### 🎯 Example 1: Subquery in WHERE
+Get employees in the 'Engineering' department:
+```roomsql
+SELECT name
+FROM employees
+WHERE dept_id = (
+  SELECT dept_id 
+  FROM departments 
+  WHERE dept_name = 'Engineering'
+);
+```
+#### 🎯 Example 2: Subquery in SELECT
+Get employee names and their department name (using subquery in SELECT):
+```roomsql
+SELECT name,
+  (SELECT dept_name 
+   FROM departments 
+   WHERE departments.dept_id = employees.dept_id) AS department
+FROM employees;
+```
+#### 🎯 Example 3: Subquery in FROM
+Use subquery as a temporary table:
+```roomsql
+SELECT avg_salary
+FROM (
+  SELECT AVG(salary) AS avg_salary 
+  FROM employees
+) AS avg_result;
+```
+#### 🎯 Example 4: Subquery with IN
+Get employees from departments with IDs 10 or 20 (using subquery):
+```roomsql
+SELECT name 
+FROM employees 
+WHERE dept_id IN (
+  SELECT dept_id 
+  FROM departments 
+  WHERE dept_name IN ('Engineering', 'Marketing')
+);
+```
+#### 🎯 Example 5: Correlated Subquery
+Example: Employees with salary > department average
+```roomsql
+SELECT name, salary
+FROM employees e1
+WHERE salary > (
+  SELECT AVG(salary)
+  FROM employees e2
+  WHERE e1.dept_id = e2.dept_id
+);
+```
+
+---
+### 🧠 Types of Subqueries
+| Type       | Description                                      |
+| ---------- | ------------------------------------------------ |
+| Single-row | Returns one row (e.g., using `=`)                |
+| Multi-row  | Returns multiple rows (e.g., `IN`, `ANY`, `ALL`) |
+| Correlated | Refers to outer query row by row                 |
+| Scalar     | Returns a single value                           |
+---
 # Subquery
 
 ---
